@@ -10,8 +10,9 @@ public:		// functions
 	int Length(char* _index);
 	char CharacterAt(const char* str, int index);
 	bool StrEqualTo(const char* str, const char* str1);
+	void StrAppend(const char* str);
 
-public:	// variables
+private:	// variables
 
 	int Index;
 };

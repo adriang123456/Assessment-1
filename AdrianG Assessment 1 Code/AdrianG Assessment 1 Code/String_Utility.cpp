@@ -18,6 +18,7 @@ int String::Length(char* _index) {
 	cout << length;
 	return length;
 }
+
 // function that figures out what is at that index
 char String::CharacterAt(const char* str, int index)
 {
@@ -28,10 +29,20 @@ char String::CharacterAt(const char* str, int index)
 	return CharAt;
 }
 
+// the function which figures out if one string is the same as another
 bool String::StrEqualTo(const char* str, const char* str1)
 {
 	if (str == str1) { cout << "True"; }
-	else if (str != str1) { cout << "False"; }
+	else { cout << "False"; }
 
 	return this;
+}
+
+
+void String::StrAppend(const char* str)
+{
+	char str_1[20] = "Hello";
+	strcat_s(str_1, sizeof str_1, str);
+
+	cout << str_1;
 }

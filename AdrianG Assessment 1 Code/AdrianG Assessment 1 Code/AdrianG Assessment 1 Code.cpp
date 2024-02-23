@@ -8,9 +8,8 @@ using namespace std;
 
 int main() {
 
-	char temp[12] = "Hello World";
-
-	char o[] = "Hello World";
+	char test_1[12] = "Hello";
+	char test_2[11] = "World";
 
 	// making the class
 	String* Test = new String("Hello World");
@@ -20,5 +19,8 @@ int main() {
 	//Test->CharacterAt(temp, 1);
 	//Test->CharacterAt("Hello", 2);
 
-	Test->StrEqualTo("Hello World", "Hell World");
+	//Test->StrEqualTo("Hello World", "Hell World");
+
+	Test->StrAppend("World");
+
 }
