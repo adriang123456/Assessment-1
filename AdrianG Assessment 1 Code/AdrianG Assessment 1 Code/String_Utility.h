@@ -1,18 +1,28 @@
 #pragma once
 class String
 {
-public:
+public: // constructors and destructors
 	String();
 	String(const char* _str);
-
-	String(const String& _other);
-
 	~String();
 
-//public:
-//	size_t Length() const;
-//	char& CharacterAt(size_t _index);
-//	const char& CharacterAt(size_t _index) const;
+public:		// functions
+	int Length(char* _index);
+	char CharacterAt(const char* str, int index);
+	bool StrEqualTo(const char* str, const char* str1);
+
+public:	// variables
+
+	int Index;
+};
+
+
+
+
+
+
+
+//	const char& CharacterAt(size_t _index) const;  pos remove if not needed
 //
 //	bool EqualTo(const String& _other) const;
 //
@@ -42,5 +52,5 @@ public:
 //	const char& operator[](size_t _index) const;
 
 
-};
+
 
