@@ -46,3 +46,40 @@ void String::StrAppend(const char* str)
 
 	cout << str_1;
 }
+
+void String::StrPreppend(const char* str)
+{
+	char str_1[10] = "Hello";
+	char result[20] = "";
+
+	strcpy_s(result, str);
+	strcat_s(result, sizeof result, str_1);
+
+	cout << result;
+}
+
+void String::ToLower(const char* str)
+{
+	char holder[20] = "";
+	strcpy_s(holder, str);
+	for (int i = 0; i < strlen(holder); i++) {
+		holder[i] = holder[i] + 32;
+
+		//if (holder[i] == int(holder[i])) { holder[i] = holder[i] - 32; }  the thing that should detect the space but doesn't ask about this
+	}
+
+	cout << holder;
+}
+
+void String::ToUpper(const char* str)
+{
+	char holder[20] = "";
+	strcpy_s(holder, str);
+
+	for (int i = 0; i < strlen(holder); i++) {
+		holder[i] = holder[i] - 32;
+
+	}
+
+	cout << holder;
+}
