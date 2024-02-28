@@ -3,15 +3,19 @@ class String
 {
 public: // constructors and destructors
 	String();
-	String(const char* _str);
+	String(const char* str);
 	~String();
 
 public:		// functions
-	int Length(char* _index);
+	int Length(const char* _index);
 	char CharacterAt(const char* str, int index);
 	bool StrEqualTo(const char* str, const char* str1);
+
 	void StrAppend(const char* str);
 	void StrPreppend(const char* str);
+
+
+
 	void ToLower(const char* str);
 	void ToUpper(const char* str);
 

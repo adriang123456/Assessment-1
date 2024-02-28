@@ -18,25 +18,23 @@ int main() {
 	// making the class
 	String* Test = new String("Hello World");
 
-	//Test->Length(temp);
+	Test->Length("Hello World");
+	
+	// Testing that the functions work
 
-	//Test->CharacterAt(temp, 1);
-	//Test->CharacterAt("Hello", 2);
+	Test->CharacterAt("Hello World", 2);
+	Test->StrEqualTo("Hello World", "Hell World");
 
-	//Test->StrEqualTo("Hello World", "Hell World");
-
-	//Test->StrAppend(input);
-	//Test->StrAppend("World");
-
-	//Test->StrPreppend("World ");
+	Test->StrAppend(" World");
+	Test->StrPreppend("World ");
 
 	//CStr ask to clarify what it wants you to return
 
-	//Test->ToLower("HELLOWORLD");
-	//Test->ToUpper("helloworld");
+	Test->ToLower("HELLO WORLD");
+	Test->ToUpper("hello world");
 
-	// find string, clarify what it wants to find
 
-	// clarify all the returns and what it wants you to do from Find to pretty much all of them
+	delete Test;
+	Test = nullptr;
 
 }

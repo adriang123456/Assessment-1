@@ -1,5 +1,6 @@
 #include "String_Utility.h"
 #include <iostream>
+#include <string>
 
 using namespace std;
 
@@ -12,10 +13,12 @@ String::~String() {
 }
 
 // length function
-int String::Length(char* _index) {
+int String::Length(const char* _index) {
 
-	int length = strlen(_index);
+	size_t length = strlen(_index);
 	cout << length;
+	cout << "\n\n\n\n";
+
 	return length;
 }
 
@@ -26,6 +29,8 @@ char String::CharacterAt(const char* str, int index)
 	char CharAt = str[Index];
 
 	cout << CharAt;
+	cout << "\n\n\n\n";
+
 	return CharAt;
 }
 
@@ -34,6 +39,8 @@ bool String::StrEqualTo(const char* str, const char* str1)
 {
 	if (str == str1) { cout << "True"; }
 	else { cout << "False"; }
+
+	cout << "\n\n\n\n";
 
 	return this;
 }
@@ -45,6 +52,8 @@ void String::StrAppend(const char* str)
 	strcat_s(str_1, sizeof str_1, str);
 
 	cout << str_1;
+	cout << "\n\n\n\n";
+
 }
 
 void String::StrPreppend(const char* str)
@@ -56,6 +65,8 @@ void String::StrPreppend(const char* str)
 	strcat_s(result, sizeof result, str_1);
 
 	cout << result;
+	cout << "\n\n\n\n";
+
 }
 
 void String::ToLower(const char* str)
@@ -63,13 +74,14 @@ void String::ToLower(const char* str)
 	char holder[20] = "";
 	strcpy_s(holder, str);
 	for (int i = 0; i < strlen(holder); i++) {
-		holder[i] = holder[i] + 32;
-
-		//if (holder[i] == int(holder[i])) { holder[i] = holder[i] - 32; }  the thing that should detect the space but doesn't ask about this
+		holder[i] = tolower(holder[i]);
 	}
 
 	cout << holder;
+	cout << "\n\n\n\n";
+
 }
+
 
 void String::ToUpper(const char* str)
 {
@@ -77,9 +89,11 @@ void String::ToUpper(const char* str)
 	strcpy_s(holder, str);
 
 	for (int i = 0; i < strlen(holder); i++) {
-		holder[i] = holder[i] - 32;
+		holder[i] = toupper(holder[i]);
 
 	}
 
 	cout << holder;
+	cout << "\n\n\n\n";
+
 }
