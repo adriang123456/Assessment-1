@@ -18,20 +18,20 @@ int main() {
 	// making the class
 	String* Test = new String("Hello World");
 
-	Test->Length("Hello World");
+	Test->Length();
 	
-	// Testing that the functions work
+	//// Testing that the functions work
 
-	Test->CharacterAt("Hello World", 2);
-	Test->StrEqualTo("Hello World", "Hell World");
+	Test->CharacterAt(2);
+	Test->StrEqualTo("Hello World");
 
 	Test->StrAppend(" World");
-	Test->StrPreppend("World ");
+	//Test->StrPreppend("World ");
 
-	//CStr ask to clarify what it wants you to return
+	////CStr ask to clarify what it wants you to return
 
-	Test->ToLower("HELLO WORLD");
-	Test->ToUpper("hello world");
+	//Test->ToLower("HELLO WORLD");
+	//Test->ToUpper("hello world");
 
 
 	delete Test;

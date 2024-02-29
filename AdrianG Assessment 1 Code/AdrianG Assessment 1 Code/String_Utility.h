@@ -4,17 +4,18 @@ class String
 public: // constructors and destructors
 	String();
 	String(const char* str);
+	String(const String& other);
 	~String();
 
 public:		// functions
-	int Length(const char* _index);
-	char CharacterAt(const char* str, int index);
-	bool StrEqualTo(const char* str, const char* str1);
+	int Length();
+	char CharacterAt(int index);
+	bool StrEqualTo(const char* other);
 
 	void StrAppend(const char* str);
 	void StrPreppend(const char* str);
 
-
+	const char* CStr() const;
 
 	void ToLower(const char* str);
 	void ToUpper(const char* str);
@@ -22,6 +23,10 @@ public:		// functions
 private:	// variables
 
 	int Index;
+	unsigned int size = 0;
+
+	char* holder = nullptr;
+	char* other = nullptr;
 };
 
 
