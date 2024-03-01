@@ -2,6 +2,10 @@
 #include <iostream>
 #include <fstream>
 #include <string>
+#include <vector>
+#include <sstream>
+
+#include "string.h"
 
 using namespace std;
 
@@ -64,7 +68,7 @@ void String::StrAppend(const char* other)
 {
 	string appended = holder;
 	appended.append(other);
-	
+
 	cout << appended;
 	cout << "\n\n\n\n";
 }
@@ -117,18 +121,45 @@ void String::ToUpper(const char* str)
 }
 
 
-//size_t String::Find(const char* str) {      -- -- -- -- --  find the index of at least the start hopefully of the string
-//	//ifstream readfile("file.txt");
-//
-//	//int count;
-//	//long location = 0;
-//	//for (; (count = readfile.get()) != EOF; ++location) {
-//	//	if (count == str) {
-//	//		return location;
-//	//	}
-//	//}
-//	//
-//}
+size_t String::Find(const char* str) {
+	ifstream file("file.txt");
+	string words;
+	string letters = str;
+
+	while (getline(file, words)) {
+		cout << words << "\n\n";
+	}
+
+	string arr[20];
+
+	int i = 0;
+	int loc = 0;
+	int count = 0;
+	int size_w = words.size();
+
+	vector<string> txt_file;
+
+	stringstream ssin(words);
+	while (ssin.good() && i < size_w) {
+		ssin >> arr[i];
+		++i;
+	}
+
+	for (i = 0; i < arr->size(); i++) {
+		string p = arr[i];
+		txt_file.push_back(p);
+	}
+
+	for (i = 0; i < txt_file.size(); i++) {
+		if (txt_file[i] == letters) {
+
+			loc = i;
+			count += 1;
+			cout << "Index > " << loc << " Amount > " << count;
+		}
+	}
+	return size_t(loc);
+}
 
 size_t String::Find_I(int index, const char* str) {
 	
