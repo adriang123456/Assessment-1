@@ -1,4 +1,6 @@
 #pragma once
+#include <string>
+
 class String
 {
 public: // constructors and destructors
@@ -20,13 +22,15 @@ public:		// functions
 	void ToLower(const char* str);
 	void ToUpper(const char* str);
 
+	size_t Find(const char* str);
+	size_t Find_I(int index, const char* str);
+
 private:	// variables
 
 	int Index;
 	unsigned int size = 0;
 
 	char* holder = nullptr;
-	char* other = nullptr;
 };
 
 

@@ -1,5 +1,6 @@
 #include "String_Utility.h"
 #include <iostream>
+#include <fstream>
 #include <string>
 
 using namespace std;
@@ -23,9 +24,6 @@ String::String(const String& other) {
 String::~String() {
 	delete holder;
 	holder = nullptr;
-
-	delete other;
-	other = nullptr;
 }
 
 // length function
@@ -61,34 +59,31 @@ bool String::StrEqualTo(const char* other)
 	return this;
 }
 
-// This function appends a char array with another    ----------------------- check if this has to append the class string or can it be an internal string
-void String::StrAppend(const char* str)
+// This function appends a char array with another  
+void String::StrAppend(const char* other)
 {
-	char str_1[20] = "Hello";
-	strcat_s(str_1, sizeof str_1, str);
-
-	cout << str_1;
+	string appended = holder;
+	appended.append(other);
+	
+	cout << appended;
 	cout << "\n\n\n\n";
-
 }
 
 // This function prepends a char array with another
 void String::StrPreppend(const char* str)
 {
-	char str_1[10] = "Hello";
-	char result[20] = "";
+	string prepended = str;
+	prepended.append(holder);
 
-	strcpy_s(result, str);
-	strcat_s(result, sizeof result, str_1);
-
-	cout << result;
+	cout << prepended;
 	cout << "\n\n\n\n";
 
 }
 
 const char* String::CStr() const
 {
-	return nullptr;
+	cout << holder;
+	return holder;
 }
 
 // This function makes all uppercase letters, lowercase
@@ -120,3 +115,25 @@ void String::ToUpper(const char* str)
 	cout << "\n\n\n\n";
 
 }
+
+
+//size_t String::Find(const char* str) {      -- -- -- -- --  find the index of at least the start hopefully of the string
+//	//ifstream readfile("file.txt");
+//
+//	//int count;
+//	//long location = 0;
+//	//for (; (count = readfile.get()) != EOF; ++location) {
+//	//	if (count == str) {
+//	//		return location;
+//	//	}
+//	//}
+//	//
+//}
+
+size_t String::Find_I(int index, const char* str) {
+	
+	
+	return size_t();
+}   // start searching from the selected index for the index of the string
+
+
