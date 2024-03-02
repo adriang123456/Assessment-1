@@ -24,6 +24,11 @@ public:		// functions
 
 	size_t Find(const char* str);
 	size_t Find_I(int index, const char* str);
+	
+	void Replace(const char* str, const char* replace);
+
+	void Read();
+	void Write();
 
 private:	// variables
 

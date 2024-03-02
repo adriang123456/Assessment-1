@@ -37,8 +37,12 @@ int main() {
 	//Test->ToLower("HELLO WORLD");
 	//Test->ToUpper("hello world");
 
-	Test->Find("from");
+	//Test->Find("Hello");    // text in the txt file - Hello World, from Computer overlords 
+	//Test->Find_I(4, "Computer"); 
+	//Test->Replace("Hello", "Goodbye");
 
+	//Test->Read();
+	//Test->Write();
 
 
 	delete Test;

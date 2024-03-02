@@ -4,6 +4,7 @@
 #include <string>
 #include <vector>
 #include <sstream>
+#include <cstring>
 
 #include "string.h"
 
@@ -84,6 +85,7 @@ void String::StrPreppend(const char* str)
 
 }
 
+// This function prints the string that was assigned to the class created
 const char* String::CStr() const
 {
 	cout << holder;
@@ -120,7 +122,7 @@ void String::ToUpper(const char* str)
 
 }
 
-
+// This function finds the index of a word inside an array that was got from a txt file
 size_t String::Find(const char* str) {
 	ifstream file("file.txt");
 	string words;
@@ -136,6 +138,7 @@ size_t String::Find(const char* str) {
 	int loc = 0;
 	int count = 0;
 	int size_w = words.size();
+	int found = 0;
 
 	vector<string> txt_file;
 
@@ -155,16 +158,120 @@ size_t String::Find(const char* str) {
 
 			loc = i;
 			count += 1;
-			cout << "Index > " << loc << " Amount > " << count;
+			cout << "Index > " << loc;
+			found = 1;
 		}
 	}
+	if (found != 1) { loc = -1; cout << loc; }
+
 	return size_t(loc);
 }
 
+// This function finds the index of a word after the provided index of a word in a array from a txt file
 size_t String::Find_I(int index, const char* str) {
+	ifstream file("file.txt");
+	string words;
+	string letters = str;
+
+	while (getline(file, words)) {
+		cout << words << "\n\n";
+	}
+
+	string arr[20];
+
+	int i = 0;
+	int loc = 0;
+	int count = 0;
+	int size_w = words.size();
+	int found = 0;
+
+	vector<string> txt_file;
+
+	stringstream ssin(words);
+	while (ssin.good() && i < size_w) {
+		ssin >> arr[i];
+		++i;
+	}
+
+	for (i = 0; i < arr->size(); i++) {
+		string p = arr[i];
+		txt_file.push_back(p);
+	}
+
+	for (int i = index; i < txt_file.size(); i++) {
+		if (txt_file[i] == letters) {
+
+			loc = i;
+			count += 1;
+			cout << "Index > " << loc;
+			found = 1;
+		}
+	}
+	if (found != 1) { loc = -1; cout << loc; }
 	
+	return size_t(loc);
+}
+
+// This function finds a string and replaces it with a provided string  ------------------------ doesn't seem to want to input all the words from the txt into the vector BROKEN!!!!
+void String::Replace(const char* str, const char* replace) {
 	
-	return size_t();
-}   // start searching from the selected index for the index of the string
+	ifstream file("file.txt");
+	string words;
+	string letters = str;
+	string Replaced = replace;
+
+	while (getline(file, words)) {
+		cout << words << "\n\n";
+	}
+
+	string arr[20];
+
+	int i = 0;
+	int loc = 0;
+	int count = 0;
+	int size_w = words.size();
+	int found = 0;
+
+	vector<string> txt_file;
+
+	stringstream ssin(words);
+	while (ssin.good() && i < size_w) {
+		ssin >> arr[i];
+		++i;
+	}
+
+	for (i = 0; i < arr->size(); i++) {
+		string p = arr[i];
+		txt_file.push_back(p);
+	}
+
+	for (i = 0; i < txt_file.size(); i++) {
+		if (txt_file[i] == letters) {
+			txt_file[i] = Replaced;
+		}
+	}
+
+	
+	for (int i = 0; i < txt_file.size(); i++) {
+		cout << txt_file[i] << " ";
+	}
+}
+
+// This functions gets a users input and put it into holder -- ----- -- doesn't like spaces
+void String::Read() {
+	string user_input;
+	cin >> user_input;
+
+	int size = user_input.size();
+	holder = new char[size + 1];
+
+	strcpy_s(holder, size + 1, user_input.c_str());
+}
+
+// This functions prints the users input from the previous function
+void String::Write() {
+	cout << holder;
+}
+
 
 
