@@ -212,7 +212,7 @@ size_t String::Find_I(int index, const char* str) {
 	return size_t(loc);
 }
 
-// This function finds a string and replaces it with a provided string  ------------------------ doesn't seem to want to input all the words from the txt into the vector BROKEN!!!!
+// This function finds a string and replaces it with a provided string  ------------------------ doesn't seem to want to input all the words from the txt into the vector BROKEN!!!! m,ight have something to do with arr size
 void String::Replace(const char* str, const char* replace) {
 	
 	ifstream file("file.txt");
@@ -240,7 +240,7 @@ void String::Replace(const char* str, const char* replace) {
 		++i;
 	}
 
-	for (i = 0; i < arr->size(); i++) {
+	for (i = 0; i < arr.size(); i++) {
 		string p = arr[i];
 		txt_file.push_back(p);
 	}
@@ -249,8 +249,11 @@ void String::Replace(const char* str, const char* replace) {
 		if (txt_file[i] == letters) {
 			txt_file[i] = Replaced;
 		}
-	}
 
+		cout << i;
+	}
+	cout << "hello";
+	cout << txt_file.size();
 	
 	for (int i = 0; i < txt_file.size(); i++) {
 		cout << txt_file[i] << " ";

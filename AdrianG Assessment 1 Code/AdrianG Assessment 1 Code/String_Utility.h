@@ -30,6 +30,18 @@ public:		// functions
 	void Read();
 	void Write();
 
+	// need to be implemented
+	bool operator == (const String& other);
+	bool operator != (const String& other);
+
+	void operator = (const char* str);
+
+	char& operator [] (size_t index);
+	const char& operator [] (size_t index) const;
+
+	void operator + (const char* str);
+	void operator += (const char* str);
+
 private:	// variables
 
 	int Index;
