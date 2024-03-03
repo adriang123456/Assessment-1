@@ -18,8 +18,6 @@ String::String(const char* str) {
 	
 	holder = new char[size + 1];
 	strncpy_s(holder, size + 1 , str, size);
-
-	//cout << strlen(holder);
 }
 String::String(const String& other) {
 	size = other.size;
@@ -212,53 +210,53 @@ size_t String::Find_I(int index, const char* str) {
 	return size_t(loc);
 }
 
-// This function finds a string and replaces it with a provided string  ------------------------ doesn't seem to want to input all the words from the txt into the vector BROKEN!!!! m,ight have something to do with arr size
-void String::Replace(const char* str, const char* replace) {
-	
-	ifstream file("file.txt");
-	string words;
-	string letters = str;
-	string Replaced = replace;
-
-	while (getline(file, words)) {
-		cout << words << "\n\n";
-	}
-
-	string arr[20];
-
-	int i = 0;
-	int loc = 0;
-	int count = 0;
-	int size_w = words.size();
-	int found = 0;
-
-	vector<string> txt_file;
-
-	stringstream ssin(words);
-	while (ssin.good() && i < size_w) {
-		ssin >> arr[i];
-		++i;
-	}
-
-	for (i = 0; i < arr.size(); i++) {
-		string p = arr[i];
-		txt_file.push_back(p);
-	}
-
-	for (i = 0; i < txt_file.size(); i++) {
-		if (txt_file[i] == letters) {
-			txt_file[i] = Replaced;
-		}
-
-		cout << i;
-	}
-	cout << "hello";
-	cout << txt_file.size();
-	
-	for (int i = 0; i < txt_file.size(); i++) {
-		cout << txt_file[i] << " ";
-	}
-}
+//// This function finds a string and replaces it with a provided string  ------------------------ doesn't seem to want to input all the words from the txt into the vector BROKEN!!!! m,ight have something to do with arr size
+//void String::Replace(const char* str, const char* replace) {
+//	
+//	ifstream file("file.txt");
+//	string words;
+//	string letters = str;
+//	string Replaced = replace;
+//
+//	while (getline(file, words)) {
+//		cout << words << "\n\n";
+//	}
+//
+//	string arr[20];
+//
+//	int i = 0;
+//	int loc = 0;
+//	int count = 0;
+//	int size_w = words.size();
+//	int found = 0;
+//
+//	vector<string> txt_file;
+//
+//	stringstream ssin(words);
+//	while (ssin.good() && i < size_w) {
+//		ssin >> arr[i];
+//		++i;
+//	}
+//
+//	for (i = 0; i < arr.size(); i++) {
+//		string p = arr[i];
+//		txt_file.push_back(p);
+//	}
+//
+//	for (i = 0; i < txt_file.size(); i++) {
+//		if (txt_file[i] == letters) {
+//			txt_file[i] = Replaced;
+//		}
+//
+//		cout << i;
+//	}
+//	cout << "hello";
+//	cout << txt_file.size();
+//	
+//	for (int i = 0; i < txt_file.size(); i++) {
+//		cout << txt_file[i] << " ";
+//	}
+//}
 
 // This functions gets a users input and put it into holder -- ----- -- doesn't like spaces
 void String::Read() {
@@ -275,6 +273,67 @@ void String::Read() {
 void String::Write() {
 	cout << holder;
 }
+
+// overloaded == operator --- doesn't work properly
+bool String::operator ==(const String& other)
+{
+	if (this->holder == other.holder) {
+		cout << "True";
+		return true;
+	}
+	cout << "False";
+	return false;
+}
+
+// overloaded [] operator
+char& String::operator[](size_t index) 
+{
+	if (index >= strlen(holder)) {
+		cout << "Index is too high";
+	}
+
+	return holder[index];
+}
+
+// overloaded = operator, check to see if this is what is meant to do
+void String::operator=(const char* str)
+{
+	int size = strlen(str);
+
+	holder = new char[size + 1];
+	strncpy_s(holder, size + 1, str, size);
+
+	cout << holder;
+}
+
+// overloaded + operator, combining the original string with a new one, inside a new string
+void String::operator+(const char* str) {
+	char* new_str;
+	int size = strlen(holder) + strlen(str) + 1;
+
+	new_str = new char[size];
+	strncpy_s(new_str, size + 1, holder, size);
+	string str_new = new_str;
+	str_new.append(str);
+	cout << str_new;
+}
+
+// overloaded += operator
+void String::operator+=(const char* str) {
+	string appended = holder;
+	appended.append(str);
+
+	cout << appended;
+	cout << "\n\n\n\n";
+}
+
+// overloaded < operator    ----- check what this is wanting exactly
+//bool String::operator<(const char* str) const
+//{
+//	if 
+//
+//	return false;
+//}
 
 
 

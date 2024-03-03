@@ -32,12 +32,10 @@ public:		// functions
 
 	// need to be implemented
 	bool operator == (const String& other);
-	bool operator != (const String& other);
+	char& operator [] (size_t index) ;
 
 	void operator = (const char* str);
-
-	char& operator [] (size_t index);
-	const char& operator [] (size_t index) const;
+	bool operator < (const char* str) const;
 
 	void operator + (const char* str);
 	void operator += (const char* str);

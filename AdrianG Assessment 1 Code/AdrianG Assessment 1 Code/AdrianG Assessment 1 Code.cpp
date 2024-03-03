@@ -21,7 +21,7 @@ int main() {
 
 	// making the class
 	String* Test = new String("Hello World");
-
+	String* Test_1(Test);
 	//Test->Length();
 
 	//// Testing that the functions work
@@ -39,11 +39,25 @@ int main() {
 
 	//Test->Find("Hello");    // text in the txt file - Hello World, from Computer overlords 
 	//Test->Find_I(4, "Computer"); 
-	Test->Replace("Hello", "Goodbye");
+	//Test->Replace("Hello", "Goodbye");   ---- needs work ---- sort of works
 
 	//Test->Read();
 	//Test->Write();
 
+	//Testing that the overloaded == works and returns true;   ---- ---- doesn't seem to work for some reason
+	Test->operator== ("Hello World");
+
+	// Testing the overloaded [] works and returns the character at the indicated index
+	//cout << Test->operator[](1);
+
+	// Testing the overloaded = works
+	//Test->operator=("Hello");
+
+	//Testing the overloaded + works
+	//Test->operator+("Boo");
+
+	// Testing the overloaded += work
+	//Test->operator+=(" Hello");
 
 	delete Test;
 	Test = nullptr;
