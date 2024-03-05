@@ -6,59 +6,56 @@
 #include <string>
 #include "String_Utility.h"
 
-
-
 using namespace std;
 
+// The main function of the custom string class assessment
 int main() {
-
-	//char input[15] = "";
-	//cin >> input;
-
-	char holder[20] = "Hello world";
-	char test_1[12] = "Hello ";
-	char test_2[11] = "World";
 
 	// making the class
 	String* Test = new String("Hello World");
 	String* Test_1(Test);
-	//Test->Length();
 
-	//// Testing that the functions work
 
-	//Test->CharacterAt(2);
-	//Test->StrEqualTo("Hello World");
 
-	//Test->StrAppend(" look");
-	//Test->StrPreppend("World ");
+	//// Testing that the functions work for Assessment 2, just requires uncommmenting
+	
+	//Test->Length();  // expected result ---
 
-	//Test->CStr();
+	//Test->CharacterAt(2);    // expected result ---
+	//Test->StrEqualTo("Hello World");    // expected result ---
 
-	//Test->ToLower("HELLO WORLD");
-	//Test->ToUpper("hello world");
+	//Test->StrAppend(" look");    // expected result ---
+	//Test->StrPreppend("World ");    // expected result ---
 
-	//Test->Find("Hello");    // text in the txt file - Hello World, from Computer overlords 
-	//Test->Find_I(4, "Computer"); 
-	//Test->Replace("Hello", "Goodbye");   ---- needs work ---- sort of works
+	//Test->CStr();    // expected result ---
 
-	//Test->Read();
-	//Test->Write();
+	//Test->ToLower("HELLO WORLD");    // expected result ---
+	//Test->ToUpper("hello world");    // expected result ---
+
+	//Test->Find("Hello");    // text in the txt file - Hello World, from Computer overlords     // expected result ---
+	//Test->Find_I(4, "Computer");     // expected result ---
+	//Test->Replace("Hello", "Goodbye");   ---- needs work ---- sort of works    // expected result ---
+
+	//Test->Read();    // expected result ---
+	//Test->Write();    // expected result ---
 
 	//Testing that the overloaded == works and returns true;   ---- ---- doesn't seem to work for some reason
-	Test->operator== ("Hello World");
+	Test->operator== ("Hello World");    // expected result ---
 
 	// Testing the overloaded [] works and returns the character at the indicated index
-	//cout << Test->operator[](1);
+	//cout << Test->operator[](1);    // expected result ---
 
 	// Testing the overloaded = works
-	//Test->operator=("Hello");
+	//Test->operator=("Hello");    // expected result ---
 
 	//Testing the overloaded + works
-	//Test->operator+("Boo");
+	//Test->operator+("Boo");    // expected result ---
 
 	// Testing the overloaded += work
-	//Test->operator+=(" Hello");
+	//Test->operator+=(" Hello");    // expected result ---
 
+
+	// Deletes the class created
 	delete Test;
 	Test = nullptr;
 
