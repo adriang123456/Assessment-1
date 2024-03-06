@@ -210,53 +210,48 @@ size_t String::Find_I(int index, const char* str) {
 	return size_t(loc);
 }
 
-//// This function finds a string and replaces it with a provided string  ------------------------ doesn't seem to want to input all the words from the txt into the vector BROKEN!!!! m,ight have something to do with arr size
-//void String::Replace(const char* str, const char* replace) {
-//	
-//	ifstream file("file.txt");
-//	string words;
-//	string letters = str;
-//	string Replaced = replace;
-//
-//	while (getline(file, words)) {
-//		cout << words << "\n\n";
-//	}
-//
-//	string arr[20];
-//
-//	int i = 0;
-//	int loc = 0;
-//	int count = 0;
-//	int size_w = words.size();
-//	int found = 0;
-//
-//	vector<string> txt_file;
-//
-//	stringstream ssin(words);
-//	while (ssin.good() && i < size_w) {
-//		ssin >> arr[i];
-//		++i;
-//	}
-//
-//	for (i = 0; i < arr.size(); i++) {
-//		string p = arr[i];
-//		txt_file.push_back(p);
-//	}
-//
-//	for (i = 0; i < txt_file.size(); i++) {
-//		if (txt_file[i] == letters) {
-//			txt_file[i] = Replaced;
-//		}
-//
-//		cout << i;
-//	}
-//	cout << "hello";
-//	cout << txt_file.size();
-//	
-//	for (int i = 0; i < txt_file.size(); i++) {
-//		cout << txt_file[i] << " ";
-//	}
-//}
+// This function finds a string and replaces it with a provided string 
+void String::Replace(const char* str, const char* replace) {
+	
+	ifstream file("file.txt");
+	string words;
+	string letters = str;
+	string Replaced = replace;
+
+	while (getline(file, words)) {
+		cout << words << "\n\n";
+	}
+
+	string arr[20];
+
+	int i = 0;
+	int loc = 0;
+	int count = 0;
+	int size_w = words.size();
+	int found = 0;
+
+	vector<string> txt_file;
+
+	stringstream ssin(words);
+	while (ssin.good() && i < size_w) {
+		ssin >> arr[i];
+		++i;
+	}
+
+	for (i = 0; i < 20; i++) {
+		string p = arr[i];
+		txt_file.push_back(p);
+	}
+
+	for (i = 0; i < txt_file.size(); i++) {
+		if (txt_file[i] == letters) {
+			txt_file[i] = Replaced;
+		}
+	}
+	for (int i = 0; i < txt_file.size(); i++) {
+		cout << txt_file[i] << " ";
+	}
+}
 
 // This functions gets a users input and put it into holder -- ----- -- doesn't like spaces
 void String::Read() {
@@ -274,12 +269,26 @@ void String::Write() {
 	cout << holder;
 }
 
-// overloaded == operator --- doesn't work properly
-bool String::operator ==(const String& other)
+// overloaded == operator
+bool String::operator ==(const char* other)
 {
-	if (this->holder == other.holder) {
-		cout << "True";
-		return true;
+	string h_older = holder;
+	if (h_older.size() != strlen(other)) {
+		cout << "False";
+		return false;
+	}
+	if (h_older.size() == strlen(other)) {
+
+		for (int i = 0; i < h_older.size(); i++) {
+			if (h_older[i] != other[i]) {
+				cout << "False";
+				return false;
+			}
+			if (h_older[i] == other[i]) {
+				cout << "True";
+				return true;
+			}
+		}
 	}
 	cout << "False";
 	return false;
@@ -328,12 +337,20 @@ void String::operator+=(const char* str) {
 }
 
 // overloaded < operator    ----- check what this is wanting exactly
-//bool String::operator<(const char* str) const
-//{
-//	if 
-//
-//	return false;
-//}
+bool String::operator<(const char* str) const
+{
+	char string[1];
+	if (holder[0] > 90) {
+		holder[0] = holder[0] - 32;
+	}
+	if (str[0] > 90) {
+		string[0] = str[0] - 32;
+	}
+
+	if (int(holder[0]) < int(string[0])) { cout << "True"; return true; }
+	cout << "False";
+	return false;
+}
 
 
 

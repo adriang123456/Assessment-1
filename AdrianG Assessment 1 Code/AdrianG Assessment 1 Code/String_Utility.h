@@ -31,7 +31,7 @@ public:		// functions
 	void Write();
 
 	// need to be implemented
-	bool operator == (const String& other);
+	bool operator == (const char* other);
 	char& operator [] (size_t index) ;
 
 	void operator = (const char* str);
@@ -44,7 +44,6 @@ private:	// variables
 
 	int Index;
 	unsigned int size = 0;
-
 	char* holder = nullptr;
 };
 
