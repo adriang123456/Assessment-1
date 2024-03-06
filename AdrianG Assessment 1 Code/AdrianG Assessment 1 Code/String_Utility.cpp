@@ -27,6 +27,9 @@ String::String(const String& other) {
 String::~String() {
 	delete holder;
 	holder = nullptr;
+
+	delete holder_1;
+	holder_1 = nullptr;
 }
 
 // length function
@@ -259,14 +262,16 @@ void String::Read() {
 	cin >> user_input;
 
 	int size = user_input.size();
-	holder = new char[size + 1];
+	holder_1 = new char[size + 1];
 
-	strcpy_s(holder, size + 1, user_input.c_str());
+	strcpy_s(holder_1, size + 1, user_input.c_str());
+	cout << "\n\n\n\n";
 }
 
 // This functions prints the users input from the previous function
 void String::Write() {
-	cout << holder;
+	cout << holder_1;
+	cout << "\n\n\n\n";
 }
 
 // overloaded == operator
@@ -309,10 +314,11 @@ void String::operator=(const char* str)
 {
 	int size = strlen(str);
 
-	holder = new char[size + 1];
-	strncpy_s(holder, size + 1, str, size);
+	holder_1 = new char[size + 1];
+	strncpy_s(holder_1, size + 1, str, size);
 
-	cout << holder;
+	cout << holder_1;
+	cout << "\n\n\n\n";
 }
 
 // overloaded + operator, combining the original string with a new one, inside a new string
@@ -351,6 +357,3 @@ bool String::operator<(const char* str) const
 	cout << "False";
 	return false;
 }
-
-
-
